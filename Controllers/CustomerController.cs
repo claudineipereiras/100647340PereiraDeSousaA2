@@ -1,4 +1,4 @@
-﻿/* DESIGNER: Claudinei Pereira de Sousa (ID: 1234567890)
+﻿/* DESIGNER: Claudinei Pereira de Sousa (100647340)
    EXERCISE: Assignment 02
    TASK: Doonut Website - ASP.NET MVC Project */
 
@@ -11,6 +11,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using _100647340PereiraDeSousaA2.Models;
+using _100647340PereiraDeSousaA2.Controllers;
 
 namespace _100647340PereiraDeSousaA2.Controllers
 {
@@ -57,7 +58,7 @@ namespace _100647340PereiraDeSousaA2.Controllers
 
                 sqlCmd.ExecuteNonQuery();
             }
-            return RedirectToAction("Index");
+            return View("ThankYou");
         }
 
 
