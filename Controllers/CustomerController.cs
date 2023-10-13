@@ -20,7 +20,8 @@ namespace _100647340PereiraDeSousaA2.Controllers
         // GET: Customer
 
         //SQL connection String
-        string connectionString = @"Data Source =(localdb)\MSSQLLocalDB;Initial Catalog=MyDB;Integrated Security=True";
+        readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MyDB;Integrated Security=True";
+       
 
         public ActionResult Index()
         {
@@ -45,6 +46,8 @@ namespace _100647340PereiraDeSousaA2.Controllers
         [HttpPost]
         public ActionResult Create(CustomerModel customerModel)
         {
+           
+
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
