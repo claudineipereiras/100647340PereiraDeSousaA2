@@ -26,7 +26,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Menu", "Menu", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Customers", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })</li>
+                    
                     
                 </ul>
                 @if (Session["username"] != null)
@@ -34,22 +34,25 @@
                     <form class="d-flex">
                         <div class="col px-5">Welcome, @Session["username"].ToString()</div>
                     </form>
+
                     <form class="d-flex px-1">
-                    <div class="col">@Html.ActionLink("Edit Details", "Edit", "UserLogin", new { area = "" }, new { @class = "nav-link" })</div>
-                    </form>
+                        <div class="col">@Html.ActionLink("Edit Details", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })</div>
+                    </form> 
                     <form class="d-flex px-1">
-                        <div class="col">@Html.ActionLink("Logout", "index", "UserLogin", new { area = "" }, new { @class = "btn btn-outline-primary"})</div>
+                        <div class="col">@Html.ActionLink("Logout", "Logout", "UserLogin", new { area = "" }, new { @class = "btn btn-outline-primary" })</div>
                     </form>
-                }
-                else
-                {
+                  }
+                    else
+                    
+                    { 
                     <form class="d-flex">
                         <div class="col">@Html.ActionLink("Sign Up", "Create", "Customer", new { area = "" }, new { @class = "btn" })</div>
                     </form>
                     <form class="d-flex">
                         <div class="col">@Html.ActionLink("Login", "index", "UserLogin", new { area = "" }, new { @class = "btn btn-primary" })</div>
                     </form>
-                }
+                     }
+                
 
 
             </div>

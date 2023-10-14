@@ -23,21 +23,21 @@ namespace _100647340PereiraDeSousaA2.Controllers
         readonly string connectionString = @"Data Source =(localdb)\MSSQLLocalDB;Initial Catalog=MyDB;Integrated Security=True";
         SqlDataReader dr;
 
+        
         //Login Method
         [HttpPost]
         public ActionResult Index(LoginModel acc)
         {
-
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query = "SELECT * from Customer WHERE Email='" + acc.Email + "' and Password='" + acc.Password + "'";
+            string query = "SELECT * from Customer WHERE UserName='" + acc.userName + "' and Password='" + acc.Password + "'";
             SqlCommand com = new SqlCommand(query, con);
             dr = com.ExecuteReader();
             if (dr.Read())
             {
                 FormsAuthentication.SetAuthCookie(acc.userName, true);
                 Session["username"] = acc.userName.ToString();
-                return View("CustomerPage");
+                return View("Success");
             }
             else
             { 
@@ -76,6 +76,13 @@ namespace _100647340PereiraDeSousaA2.Controllers
             }
             else
                 return RedirectToAction("Index");
+        }
+
+        public ActionResult Logout(LoginModel acc)
+        {
+            FormsAuthentication.SetAuthCookie(acc.userName, false);
+            Session["username"] = null;
+            return View("Index");
         }
 
     }

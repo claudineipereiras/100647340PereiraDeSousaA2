@@ -1,16 +1,10 @@
 ﻿
+@model System.Data.DataTable
 @{
     ViewBag.Title = "Welcome";
 }
 
-@if (Session["username"] != null)
-{
-    <h2>Welcome @Session["username"].ToString()</h2>
-}
-else
-{
-    Response.Redirect("Failed");
-}
+
 
 @Html.ActionLink("Logout", "Index")
 
