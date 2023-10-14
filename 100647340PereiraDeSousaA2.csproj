@@ -191,6 +191,7 @@
     <Content Include="Views\UserLogin\Success.cshtml" />
     <Content Include="Views\UserLogin\Failed.cshtml" />
     <Content Include="Views\UserLogin\Edit.cshtml" />
+    <Content Include="Views\UserLogin\Logout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
