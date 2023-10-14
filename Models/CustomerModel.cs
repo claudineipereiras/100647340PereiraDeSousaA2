@@ -26,6 +26,10 @@ namespace _100647340PereiraDeSousaA2.Models
 
         public int Phone { get; set; }
 
+        [Display(Name = "User Name")]
+        [Required(ErrorMessage = "User Name is required")]
+        public string UserName { get; set; }
+
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Email is required")]
         [DataType(DataType.EmailAddress)]

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Data.SqlClient;
 using _100647340PereiraDeSousaA2.Models;
+using System.Data;
 
 
 namespace _100647340PereiraDeSousaA2.Controllers
@@ -34,13 +35,12 @@ namespace _100647340PereiraDeSousaA2.Controllers
             dr = com.ExecuteReader();
             if (dr.Read())
             {
-                FormsAuthentication.SetAuthCookie(acc.Email, true);
-                Session["username"] = acc.Email.ToString();
-                return RedirectToAction("CustomerPage");
+                FormsAuthentication.SetAuthCookie(acc.userName, true);
+                Session["username"] = acc.userName.ToString();
+                return View("CustomerPage");
             }
             else
-            {
-
+            { 
                 ViewData["message"] = "Login Details Failed !";
             }
             con.Close();
@@ -50,5 +50,33 @@ namespace _100647340PereiraDeSousaA2.Controllers
         {
             return View();
         }
+
+        public ActionResult Edit(LoginModel acc)
+        {
+            CustomerModel customerModel = new CustomerModel();
+            DataTable customerData = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT * FROM Customer Where CustomerID = @CustomerID";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@CustomerID", acc);
+                sqlDa.Fill(customerData);
+            }
+            if (customerData.Rows.Count == 1)
+            {
+                customerModel.CustomerID = Convert.ToInt32(customerData.Rows[0][0].ToString());
+                customerModel.FirstName = customerData.Rows[0][1].ToString();
+                customerModel.LastName = customerData.Rows[0][2].ToString();
+                customerModel.Phone = Convert.ToInt32(customerData.Rows[0][3].ToString());
+                customerModel.Email = customerData.Rows[0][4].ToString();
+                customerModel.UserName = customerData.Rows[0][5].ToString();
+                customerModel.Password = customerData.Rows[0][6].ToString();
+                return View(customerModel);
+            }
+            else
+                return RedirectToAction("Index");
+        }
+
     }
 }
