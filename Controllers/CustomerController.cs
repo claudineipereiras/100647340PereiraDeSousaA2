@@ -20,7 +20,8 @@ namespace _100647340PereiraDeSousaA2.Controllers
         // GET: Customer
 
         //SQL connection String
-        string connectionString = @"Data Source =(localdb)\MSSQLLocalDB;Initial Catalog=MyDB;Integrated Security=True";
+        readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MyDB;Integrated Security=True";
+       
 
         public ActionResult Index()
         {
@@ -48,12 +49,13 @@ namespace _100647340PereiraDeSousaA2.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO Customer VALUES(@FirstName,@LastName,@Phone, @Email, @Password)";
+                string query = "INSERT INTO Customer VALUES(@FirstName,@LastName,@Phone, @Email, @UserName, @Password)";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@FirstName", customerModel.FirstName);
                 sqlCmd.Parameters.AddWithValue("@LastName", customerModel.LastName);
                 sqlCmd.Parameters.AddWithValue("@Phone", customerModel.Phone);
                 sqlCmd.Parameters.AddWithValue("@Email", customerModel.Email);
+                sqlCmd.Parameters.AddWithValue("@UserName", customerModel.UserName);
                 sqlCmd.Parameters.AddWithValue("@Password", customerModel.Password);
 
                 sqlCmd.ExecuteNonQuery();
@@ -82,7 +84,9 @@ namespace _100647340PereiraDeSousaA2.Controllers
                 customerModel.LastName = customerData.Rows[0][2].ToString();
                 customerModel.Phone = Convert.ToInt32(customerData.Rows[0][3].ToString());
                 customerModel.Email = customerData.Rows[0][4].ToString();
-                customerModel.Password = customerData.Rows[0][5].ToString();
+                customerModel.UserName = customerData.Rows[0][5].ToString();
+                customerModel.Password = customerData.Rows[0][6].ToString();
+                
                 return View(customerModel);
             }
             else
@@ -97,13 +101,14 @@ namespace _100647340PereiraDeSousaA2.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "UPDATE EmployeeTable SET FirstName = @FirstName , LastName= @LastName , Phone = @Phone, Email = @Email, Password = @Password WHERE CustomerID = @CustomerID";
+                string query = "UPDATE Customer SET FirstName = @FirstName , LastName= @LastName , Phone = @Phone, Email = @Email, UserName = @UserName, Password = @Password WHERE CustomerID = @CustomerID";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@CustomerID", customerModel.CustomerID);
                 sqlCmd.Parameters.AddWithValue("@FirstName", customerModel.FirstName);
                 sqlCmd.Parameters.AddWithValue("@LastName", customerModel.LastName);
                 sqlCmd.Parameters.AddWithValue("@Phone", customerModel.Phone);
                 sqlCmd.Parameters.AddWithValue("@Email", customerModel.Email);
+                sqlCmd.Parameters.AddWithValue("@UserName", customerModel.UserName);
                 sqlCmd.Parameters.AddWithValue("@Password", customerModel.Password);
                 sqlCmd.ExecuteNonQuery();
             }

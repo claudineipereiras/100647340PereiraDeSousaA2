@@ -14,6 +14,7 @@
         <th>Last Name</th>
         <th>Phone</th>
         <th>Email</th>
+        <th>UserName</th>
         <th>Password</th>
         <th>Manage</th>
     </tr>
@@ -26,6 +27,7 @@
             <td>@Model.Rows[i][3]</td>
             <td>@Model.Rows[i][4]</td>
             <td>@Model.Rows[i][5]</td>
+            <td>@Model.Rows[i][6]</td>
             <td>
                 <a href="@Url.Action("Edit", "Customer", new {@id=@Model.Rows[i][0] })">Edit</a>
                 <a href="@Url.Action("Delete", "Customer", new {@id=@Model.Rows[i][0] })">Delete</a>
