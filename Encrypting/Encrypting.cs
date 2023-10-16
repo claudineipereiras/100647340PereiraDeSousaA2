@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* DESIGNER: Claudinei Pereira de Sousa (100647340)
+   EXERCISE: Assignment 02
+   TASK: Doonut Website - ASP.NET MVC Project */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
