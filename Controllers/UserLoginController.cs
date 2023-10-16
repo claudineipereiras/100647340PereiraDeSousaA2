@@ -30,14 +30,14 @@ namespace _100647340PereiraDeSousaA2.Controllers
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            string query = "SELECT * from Customer WHERE UserName='" + acc.userName + "' and Password='" + acc.Password + "'";
+            string query = "SELECT * from Customer WHERE UserName='" + acc.Username + "' and Password='" + acc.Password + "'";
             SqlCommand com = new SqlCommand(query, con);
             dr = com.ExecuteReader();
             if (dr.Read())
             {
-                FormsAuthentication.SetAuthCookie(acc.userName, true);
-                Session["username"] = acc.userName.ToString();
-                return View("Success");
+                FormsAuthentication.SetAuthCookie(acc.Username, true);
+                Session["username"] = acc.Username.ToString();
+                return View("~/Views/Home/Menu.cshtml");
             }
             else
             { 
@@ -51,36 +51,10 @@ namespace _100647340PereiraDeSousaA2.Controllers
             return View();
         }
 
-        public ActionResult Edit(LoginModel acc)
-        {
-            CustomerModel customerModel = new CustomerModel();
-            DataTable customerData = new DataTable();
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                sqlCon.Open();
-                string query = "SELECT * FROM Customer Where CustomerID = @CustomerID";
-                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
-                sqlDa.SelectCommand.Parameters.AddWithValue("@CustomerID", acc);
-                sqlDa.Fill(customerData);
-            }
-            if (customerData.Rows.Count == 1)
-            {
-                customerModel.CustomerID = Convert.ToInt32(customerData.Rows[0][0].ToString());
-                customerModel.FirstName = customerData.Rows[0][1].ToString();
-                customerModel.LastName = customerData.Rows[0][2].ToString();
-                customerModel.Phone = Convert.ToInt32(customerData.Rows[0][3].ToString());
-                customerModel.Email = customerData.Rows[0][4].ToString();
-                customerModel.UserName = customerData.Rows[0][5].ToString();
-                customerModel.Password = customerData.Rows[0][6].ToString();
-                return View(customerModel);
-            }
-            else
-                return RedirectToAction("Index");
-        }
 
         public ActionResult Logout(LoginModel acc)
         {
-            FormsAuthentication.SetAuthCookie(acc.userName, false);
+            FormsAuthentication.SetAuthCookie(acc.Username, false);
             Session["username"] = null;
             return View("Index");
         }
