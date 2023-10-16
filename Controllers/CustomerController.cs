@@ -20,7 +20,7 @@ namespace _100647340PereiraDeSousaA2.Controllers
         // GET: Customer
 
         //SQL connection String
-        readonly string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MyDB;Integrated Security=True";
+        readonly string connectionString = @"Data Source=DESKTOP-JQHVNAQ;Initial Catalog=MyDB;Integrated Security=True";
        
 
         public ActionResult Index()

@@ -1,0 +1,19 @@
+﻿
+@model System.Data.DataTable
+@{
+    ViewBag.Title = "Welcome";
+}
+
+
+
+@Html.ActionLink("Logout", "Index")
+
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack", 0);
+    window.onload = function () {
+        null;
+    }
+</script>
