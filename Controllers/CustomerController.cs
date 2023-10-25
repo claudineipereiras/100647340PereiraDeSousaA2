@@ -20,8 +20,9 @@ namespace _100647340PereiraDeSousaA2.Controllers
         // GET: Customer
 
         //SQL connection String
-        readonly string connectionString = @"Data Source=DESKTOP-JQHVNAQ;Initial Catalog=MyDB;Integrated Security=True";
-       
+        // readonly string connectionString = @"Data Source=DESKTOP-JQHVNAQ;Initial Catalog=MyDB;Integrated Security=True";
+        readonly string connectionString = @"Server=tcp:sqlsvrmovieapp.database.windows.net,1433;Initial Catalog=dooonutsdb;Persist Security Info=False;User ID=claud;Password=P@ssw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
 
         public ActionResult Index()
         {
