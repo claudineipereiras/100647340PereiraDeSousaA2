@@ -157,6 +157,8 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\dooonutsapp - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -168,6 +170,47 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\img\001-Coffee.jpg" />
+    <Content Include="Views\img\002-Latte.jpg" />
+    <Content Include="Views\img\003-Mocha.jpg" />
+    <Content Include="Views\img\004-Macchiato.jpg" />
+    <Content Include="Views\img\006-TakeAway.png" />
+    <Content Include="Views\img\007-espresso.jpg" />
+    <Content Include="Views\img\008-hotchocolate.jpg" />
+    <Content Include="Views\img\009-Capuccino.jpg" />
+    <Content Include="Views\img\12Pack.png" />
+    <Content Include="Views\img\4pack.png" />
+    <Content Include="Views\img\6Pack.png" />
+    <Content Include="Views\img\Caroussel001.png" />
+    <Content Include="Views\img\Caroussel001.svg" />
+    <Content Include="Views\img\Caroussel002.png" />
+    <Content Include="Views\img\Caroussel002.svg" />
+    <Content Include="Views\img\Caroussel003.png" />
+    <Content Include="Views\img\Caroussel003.svg" />
+    <Content Include="Views\img\Coffee-cartoon.png" />
+    <Content Include="Views\img\Coffee-Moodboard2.jpg" />
+    <Content Include="Views\img\cup.svg" />
+    <Content Include="Views\img\Donut-Wallpaper.jpg" />
+    <Content Include="Views\img\Donuts-Pictures.jpg" />
+    <Content Include="Views\img\Donuts-Products.jpg" />
+    <Content Include="Views\img\facebook.png" />
+    <Content Include="Views\img\facebook.svg" />
+    <Content Include="Views\img\handshake.svg" />
+    <Content Include="Views\img\HOTDRINKS.png" />
+    <Content Include="Views\img\insta-logo.png" />
+    <Content Include="Views\img\instagram.svg" />
+    <Content Include="Views\img\logo-v02-transparent.png" />
+    <Content Include="Views\img\Logo-V1.0.svg" />
+    <Content Include="Views\img\Logo-Version 2.png" />
+    <Content Include="Views\img\Logo-Version 3.png" />
+    <Content Include="Views\img\logo-Version2.png" />
+    <Content Include="Views\img\Logo-Version_3.png" />
+    <Content Include="Views\img\Products.jpg" />
+    <Content Include="Views\img\star.svg" />
+    <Content Include="Views\img\store.svg" />
+    <Content Include="Views\img\twitter-logo.png" />
+    <Content Include="Views\img\twitter.svg" />
+    <Content Include="Views\img\WallpaperDonut.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -191,12 +234,11 @@
     <Content Include="Views\UserLogin\Success.cshtml" />
     <Content Include="Views\UserLogin\Failed.cshtml" />
     <Content Include="Views\UserLogin\Logout.cshtml" />
+    <Content Include="Views\img\donut-websitetwo.webp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="css\" />
-    <Folder Include="img\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
